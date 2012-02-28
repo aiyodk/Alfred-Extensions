@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <update>
-	<version>1.1</version>
+	<version>1.2</version>
 	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/sendURL.alfredextension</url>
-	<comments>Improved support for Webkit Nightly and Opera Next. Can now open URLs in Firefox and Firefox Aurora. Added fuzzy matching. Much more robust at finding and opening browsers.</comments>
+	<comments>Added support for Mail and Sparrow and the ability to copy URL to the clipboard.</comments>
 </update>
