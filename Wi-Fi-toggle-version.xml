@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <update>
 	<version>2.0</version>
-	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/Wi-Fi-toggle.alfredextension</url>
+	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/AlfredApp_1.x/Wi-Fi-toggle/Wi-Fi-toggle.alfredextension</url>
 	<comments>Now displays status when enabling/disabling. Display the current network with "wifi ?". Connect to a known network with "wifi [network name]".</comments>
 </update>

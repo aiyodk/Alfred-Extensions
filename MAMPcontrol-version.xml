@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <update>
 	<version>2.0</version>
-	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/MAMPcontrol.alfredextension</url>
+	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/AlfredApp_1.x/MAMPcontrol/MAMPcontrol.alfredextension</url>
 	<comments>Shows status of both Apache and MySQL servers. Support for port numbers under 1024. Bug fixes.</comments>
 </update>

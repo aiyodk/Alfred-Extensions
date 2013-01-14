@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <update>
 	<version>2.3</version>
-	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/sendURL.alfredextension</url>
+	<url>https://raw.github.com/aiyodk/Alfred-Extensions/master/AlfredApp_1.x/sendURL/sendURL.alfredextension</url>
 	<comments>Added support Gmail.</comments>
 </update>
