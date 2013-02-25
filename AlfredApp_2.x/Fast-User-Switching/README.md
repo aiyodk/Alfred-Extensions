@@ -1,4 +1,4 @@
-#Fast User Switching - Alfred Workflow
+##Fast User Switching - Alfred Workflow
 
 Switch to another User Account or go the Login Window - without moving your fingers from you keyboard!
 
