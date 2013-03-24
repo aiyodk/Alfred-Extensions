@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>dk.aiyo.VirtualBoxControl</string>
+	<key>connections</key>
+	<dict>
+		<key>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>301581C1-995D-4A74-90CD-8B3D929EBF23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Jonas Eriksen</string>
+	<key>description</key>
+	<string>Control Your VirtualBox VMs From Alfred.app</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VirtualBox Control</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>script</key>
+				<string>VBoxManage {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>301581C1-995D-4A74-90CD-8B3D929EBF23</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>vm</string>
+				<key>runningsubtext</key>
+				<string>Searching for Virtual Machines...</string>
+				<key>script</key>
+				<string>sh virtualbox_control.sh "{query}"</string>
+				<key>subtext</key>
+				<string>Start, Stop, Pause, Resume, Reset and more</string>
+				<key>title</key>
+				<string>VirtualBox Control</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Control your VirualBox VMs from Alfred.
+
+Surported commands are:
+	- Start
+	- Power Off
+	- ACPI Shutdown
+	- Reset
+	- Pause / Resume
+	- Save State
+	- Take a Screen Shot</string>
+	<key>uidata</key>
+	<dict>
+		<key>301581C1-995D-4A74-90CD-8B3D929EBF23</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.aiyo.dk/alfredapp/v2</string>
+</dict>
+</plist>
