@@ -19,3 +19,4 @@ org.derailer.Paparazzi,*
 com.droplr.droplr-mac,*
 net.sourceforge.skim-app.skim,.pdf
 com.mekentosj.papers2,*
+com.iSkysoft.iTube Studio,*
