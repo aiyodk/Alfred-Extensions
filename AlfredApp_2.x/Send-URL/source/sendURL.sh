@@ -16,12 +16,12 @@ URLFILEFORMAT=$(echo $THEURL | sed 's/^.*\(\.[^.]*$\)/\1/')
 URLPROTOCOL=${THEURL%"://"*}
 
 CACHEFILE=~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.SendURL/appCache.db
-if [[ ! -f "$CACHEFILE" ]]
+if [[ ! -f "$CACHEFILE" ]] || [[ $(stat -f "%m" supportedApplications.txt) -gt $(stat -f "%m" "$CACHEFILE") ]]
     then
-    # if there is not application cache then create it
+    # if there is no application cache then create it
     sh cacheApps.sh
 fi
-# strip leading an tailing whitespace and change whitespace between word with * to prepare for matching
+# strip leading and tailing whitespace + change whitespace between words to '* ' to prepare for matching
 QUERY=$(echo "$1" | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//' -e 's/ /* /g')
 
 echo "<?xml version=\"1.0\"?>"
@@ -32,7 +32,7 @@ if [[ -z "$THEURL" ]]
     then
     # if no URL then display an error
     echo "<item uid=\"\" arg=\"\" valid=\"no\">"
-    echo "<title>Send URL to...$QUERY</title>"
+    echo "<title>Send URL to...</title>"
     echo "<subtitle>Unable to find a URL!</subtitle>"
     echo "<icon>icon.png</icon>"
     echo "</item>"
@@ -56,9 +56,9 @@ elif [[ $QUERY* == "adium"* ]] && [[ $(ps ax | grep -c Adium) -ge 2 ]]
         fi
     done
 
-# List all avaiable applications
+# List all available applications
 else
-    # use timestamp and a iterator as uid to make the list order static
+    # use timestamp + an iterator as uid to make the list order static
     TIMESTAMP=$(date +%s)
     i=1
     # Copy to clipboard item, on top when no $query
@@ -161,5 +161,6 @@ else
         echo "</item>"
     fi
 fi
+
 echo "</items>"
 shopt -u nocasematch
