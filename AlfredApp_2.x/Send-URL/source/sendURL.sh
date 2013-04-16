@@ -31,7 +31,7 @@ echo "<items>"
 if [[ -z "$THEURL" ]]
     then
     # if no URL then display an error
-    echo "<item uid=\"\" arg=\"\" valid=\"no\">"
+    echo "<item valid=\"no\">"
     echo "<title>Send URL to...</title>"
     echo "<subtitle>Unable to find a URL!</subtitle>"
     echo "<icon>icon.png</icon>"
@@ -48,7 +48,7 @@ elif [[ $QUERY* == "adium"* ]] && [[ $(ps ax | grep -c Adium) -ge 2 ]]
         USERNAME=$(echo $USER | tr '_' ' ' | sed 's/^\ //')
         if [[ "adium $USERNAME" == $QUERY* ]]
             then
-            echo "<item uid=\"\" arg=\"adium$USERNAME\" autocomplete=\"Adium $USERNAME\">"  
+            echo "<item arg=\"adium$USERNAME\" autocomplete=\"Adium $USERNAME\">"  
             echo "<title>Send URL to $USERNAME</title>"
             echo "<subtitle>Send URL in a chat message</subtitle>"
             echo "<icon>Adium.png</icon>"
@@ -58,13 +58,10 @@ elif [[ $QUERY* == "adium"* ]] && [[ $(ps ax | grep -c Adium) -ge 2 ]]
 
 # List all available applications
 else
-    # use timestamp + an iterator as uid to make the list order static
-    TIMESTAMP=$(date +%s)
-    i=1
     # Copy to clipboard item, on top when no $query
     if [[ "copy" == $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP\" arg=\"pbcopy\" autocomplete=\"Copy\">"
+        echo "<item arg=\"pbcopy\" autocomplete=\"Copy\">"
         echo "<title>$THEURL</title>"
         echo "<subtitle>Copy URL...</subtitle>"
         echo "<icon>icon.png</icon>"
@@ -80,40 +77,37 @@ else
         APP_ID=${APP%"|"*}
         APP_NAME=${APP#*"| "}
 
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"$APP_ID\" autocomplete=\"$APP_NAME\">
+        echo "<item arg=\"$APP_ID\" autocomplete=\"$APP_NAME\">
             <title>Send URL to $APP_NAME</title>
             <subtitle>$APP_PATH</subtitle>
             <icon type=\"fileicon\">$APP_PATH</icon>
             </item>"
-        let "i+=1"
     done
  
     # adium item
     if [[ "adium" == $QUERY* ]] && [[ $(ps ax | grep -c Adium) -ge 2 ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" autocomplete=\"Adium \" valid=\"no\" >"
+        echo "<item autocomplete=\"Adium \" valid=\"no\" >"
         echo "<title>Send URL to Adium</title>"
         echo "<subtitle>Send URL to a Contact</subtitle>"
         echo "<icon>Adium.png</icon>"
         echo "</item>"
-        let "i+=1"
     fi    
 
     # compose gmail message with url
     if [[ "gmail" == $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"gmail\" autocomplete=\"Gmail\">"
+        echo "<item arg=\"gmail\" autocomplete=\"Gmail\">"
         echo "<title>Send URL to Gmail</title>"
         echo "<subtitle>https://mail.google.com/</subtitle>"
         echo "<icon>gmail.png</icon>"
         echo "</item>"
-        let "i+=1"
     fi
 
     # Instapaper Mobilizer
     if [[ " instapaper mobilizer" == *\ $QUERY* ]] && [[ $URLPROTOCOL == http* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"instapapermobilizer\" autocomplete=\"Mobilizer\">"
+        echo "<item arg=\"instapapermobilizer\" autocomplete=\"Mobilizer\">"
         echo "<title>Send URL to Instapaper Mobilizer</title>"
         echo "<subtitle>Opens Instapaper Mobilizer in the default browser</subtitle>"
         echo "<icon>instapaper.png</icon>"
@@ -123,18 +117,17 @@ else
     # downforeveryoneorjustme item
     if [[ " down for everyone or just me" == *\ $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"downforeveryoneorjustme\" autocomplete=\"Down For Everyone?\">"
+        echo "<item arg=\"downforeveryoneorjustme\" autocomplete=\"Down For Everyone?\">"
         echo "<title>Down For Everyone Or Just Me?</title>"
         echo "<subtitle>http://www.downforeveryoneorjustme.com</subtitle>"
         echo "<icon>icon.png</icon>"
         echo "</item>"
-        let "i+=1"
     fi
 
     # Copy to clipboard as html link item
     if [[ " copy as html link" == *\ $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"htmllink\" autocomplete=\"Copy as HTML link\">"
+        echo "<item arg=\"htmllink\" autocomplete=\"Copy as HTML link\">"
         echo "<title>Copy URL as HTML Link...</title>"
         echo "<subtitle>Create a HTML link tag from the URL</subtitle>"
         echo "<icon>icon.png</icon>"
@@ -144,7 +137,7 @@ else
     # Copy to clipboard as markdown link item
     if [[ " copy as markdown link" == *\ $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"markdownlink\" autocomplete=\"Copy as Markdown link\">"
+        echo "<item arg=\"markdownlink\" autocomplete=\"Copy as Markdown link\">"
         echo "<title>Copy URL as Markdown Link...</title>"
         echo "<subtitle>Create a Markdown link from the URL</subtitle>"
         echo "<icon>icon.png</icon>"
@@ -154,7 +147,7 @@ else
     # Copy to clipboard item, on bottom $query in not empty
     if [[ "copy" != $QUERY* ]]
         then
-        echo "<item uid=\"$TIMESTAMP$i\" arg=\"pbcopy\" autocomplete=\"Copy\" >"
+        echo "<item arg=\"pbcopy\" autocomplete=\"Copy\" >"
         echo "<title>$THEURL</title>"
         echo "<subtitle>Copy URL...</subtitle>"
         echo "<icon>icon.png</icon>"
