@@ -14,7 +14,7 @@ echo "<?xml version=\"1.0\"?>"
 echo "<items>"
 
 # list user accounts
-GUESTENABLED=$(defaults read /Library/Preferences/com.apple.loginwindow GuestEnabled)
+GUESTENABLED=$(defaults read /Library/Preferences/com.apple.loginwindow GuestEnabled 2> /dev/null || printf 1)
 USERS=$(dscl . -list /Users _writers_UserCertificate | sed 's/ .*$//')
 for USERNAME in $USERS
     do 
