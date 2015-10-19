@@ -11,7 +11,7 @@ org.mozilla.aurora,*
 de.icab.iCab,*
 com.apple.mail,*
 com.sparrowmailapp.sparrow,*
-com.postbox-inc.postbox,*
+com.JadenGeller.Helium,*
 com.tapbots.TweetbotMac,*
 org.videolan.vlc,.3gp.asf.wmv.au.avi.flv.mov.mp4.ogm.ogg.mkv.mka.ts.mpg.mpeg.mp3.mp2.nsc.nsv.nut.a52.dts.aac.flac.dv.vid.tta.tac.ty.wav.dts.xa
 com.apple.QuickTimePlayerX,.mov.mp4.m4v.m2v.mpeg.mpg.dv.avi.m4a.m4b.m4p.mp3.caf.aiff.au.wav
@@ -20,3 +20,4 @@ com.droplr.droplr-mac,*
 net.sourceforge.skim-app.skim,.pdf
 com.mekentosj.papers2,*
 com.iSkysoft.iTube Studio,*
+com.postbox-inc.postbox,*
