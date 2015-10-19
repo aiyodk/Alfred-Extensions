@@ -92,6 +92,10 @@ END
                 echo "Unable to check if \"$THEURL\" is up"
             fi
         ;;
+        com.JadenGeller.Helium )
+        # launch helium and pass URL. Helium url scheme is slightly broken (https://github.com/JadenGeller/Helium/issues/88)
+            osascript scpt/helium.scpt $THEURL
+        ;;
         *)
             # all other applications can be opened from bash
             open -b "$1" "$THEURL"
